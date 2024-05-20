@@ -1,33 +1,44 @@
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
     margin: 0;
     padding: 0;
     background: #f4f4f4;
-}
-
-.container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.content {
+.container {
+    display: flex;
     background: #fff;
-    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+    margin: 20px;
+}
+
+.left {
+    background: #fff5f5;
+    padding: 40px;
+    flex: 1;
+}
+
+.right {
+    padding: 40px;
+    flex: 1;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 2.5em;
     margin-bottom: 0.5em;
 }
 
 p {
-    font-size: 1em;
-    margin-bottom: 1em;
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
 }
 
 form {
@@ -37,12 +48,19 @@ form {
 
 label {
     margin-top: 10px;
+    font-weight: bold;
 }
 
 input, textarea, button {
     margin-top: 5px;
     padding: 10px;
     font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+textarea {
+    resize: vertical;
 }
 
 button {
@@ -51,6 +69,7 @@ button {
     border: none;
     cursor: pointer;
     margin-top: 20px;
+    padding: 15px;
 }
 
 button:hover {
