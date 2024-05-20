@@ -12,7 +12,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
     formData.append('name', nameInput);
     formData.append('email', emailInput);
 
-    const response = await fetch('http://localhost:5000/api/analyze', {
+    const response = await fetch('https://949c-2604-3d09-aa7a-9880-29d4-90f5-37b7-f08d.ngrok-free.app/api/analyze', {
         method: 'POST',
         body: formData
     });
