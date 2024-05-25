@@ -17,7 +17,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
 
     const test = await fetch('https://d5a7-2604-3d09-aa7a-9880-3060-2612-47aa-9033.ngrok-free.app/api/test');
 
-    console.log(test)
+    console.log(test.json())
     
     const response = await fetch('https://d5a7-2604-3d09-aa7a-9880-3060-2612-47aa-9033.ngrok-free.app/api/analyze', {
         method: 'POST',
