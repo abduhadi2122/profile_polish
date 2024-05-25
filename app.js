@@ -7,7 +7,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
     const emailInput = document.getElementById('emailInput').value;
 
     console.log(bioInput)
-    cosole.log(nameInput)
+    console.log(nameInput)
     
     const formData = new FormData();
     Array.from(fileInput.files).forEach(file => formData.append('file', file));
