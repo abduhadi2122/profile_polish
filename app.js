@@ -25,5 +25,5 @@ document.getElementById('profileForm').addEventListener('submit', async function
         console.log('Response JSON:', testResult); // Log the JSON data
     } catch (jsonError) {
         console.error('Error parsing JSON:', jsonError);
-
+    }
 });
