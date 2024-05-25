@@ -12,7 +12,14 @@ document.getElementById('profileForm').addEventListener('submit', async function
     formData.append('name', nameInput);
     formData.append('email', emailInput);
 
-    const response = await fetch('https://949c-2604-3d09-aa7a-9880-29d4-90f5-37b7-f08d.ngrok-free.app/api/analyze', {
+    const test = await fetch('https://d5a7-2604-3d09-aa7a-9880-3060-2612-47aa-9033.ngrok-free.app/api/test', {
+        method: 'POST',
+        body: formData
+    });
+
+    console.log(test)
+    
+    const response = await fetch('https://d5a7-2604-3d09-aa7a-9880-3060-2612-47aa-9033.ngrok-free.app/api/analyze', {
         method: 'POST',
         body: formData
     });
