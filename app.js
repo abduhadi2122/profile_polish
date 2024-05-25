@@ -15,10 +15,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
     formData.append('name', nameInput);
     formData.append('email', emailInput);
 
-    const test = await fetch('https://d5a7-2604-3d09-aa7a-9880-3060-2612-47aa-9033.ngrok-free.app/api/test', {
-        method: 'POST',
-        body: formData
-    });
+    const test = await fetch('https://d5a7-2604-3d09-aa7a-9880-3060-2612-47aa-9033.ngrok-free.app/api/test');
 
     console.log(test)
     
