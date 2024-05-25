@@ -15,20 +15,9 @@ document.getElementById('profileForm').addEventListener('submit', async function
     formData.append('name', nameInput);
     formData.append('email', emailInput);
 
-    try {
-        // Fetch the test endpoint
-        const testResponse = await fetch('https://d5a7-2604-3d09-aa7a-9880-3060-2612-47aa-9033.ngrok-free.app/api/test');
-        const testResult = await testResponse.json();
-        console.log(testResult); // Log the actual JSON data from the test endpoint
-        
-        // Fetch the analyze endpoint
-        const analyzeResponse = await fetch('https://d5a7-2604-3d09-aa7a-9880-3060-2612-47aa-9033.ngrok-free.app/api/analyze', {
-            method: 'POST',
-            body: formData
-        });
-        const analyzeResult = await analyzeResponse.json();
-        document.getElementById('feedback').textContent = analyzeResult.feedback || 'Form submitted successfully!';
-    } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
-    }
+    // Fetch the test endpoint
+    const testResponse = await fetch('https://d5a7-2604-3d09-aa7a-9880-3060-2612-47aa-9033.ngrok-free.app/api/test');
+    const testResult = await testResponse.json();
+    console.log(testResult); // Log the actual JSON data from the test endpoint
+   
 });
