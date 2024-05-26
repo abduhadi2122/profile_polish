@@ -31,8 +31,8 @@ document.getElementById('profileForm').addEventListener('submit', async function
         console.log("Response Data:", responseData);
 
         // Display the evaluation and recommendations on the screen
-        document.getElementById('evaluation').innerText = data.evaluation;
-        document.getElementById('recommendations').innerText = data.recommendations;
+        document.getElementById('evaluation').innerText = responseData.evaluation;
+        document.getElementById('recommendations').innerText = responseData.recommendations;
     } catch (error) {
         console.error("Fetch error:", error);
     }
