@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dating Profile Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1>Dating Profile Analyzer</h1>
+    </header>
+    <main>
+        <form id="profile-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" required></textarea>
+
+            <label for="photos">Photos:</label>
+            <input type="file" id="photos" name="photos" multiple>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">Analyze</button>
+        </form>
+        <div id="result"></div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
