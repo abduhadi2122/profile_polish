@@ -14,9 +14,9 @@ document.getElementById('profileForm').addEventListener('submit', async function
 
     try {
 
-        const response = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/test') 
-        const data = await response.json()
-        console.log(data)
+        const test = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/test') 
+        const testData = await test.json()
+        console.log(testData)
                                      
         const response = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/analyze', {
             method: 'POST',
@@ -27,8 +27,8 @@ document.getElementById('profileForm').addEventListener('submit', async function
             throw new Error('Network response was not ok');
         }
 
-        const data = await response.json();
-        console.log("Response Data:", data);
+        const responseData = await response.json();
+        console.log("Response Data:", responseData);
 
         // Display the evaluation and recommendations on the screen
         document.getElementById('evaluation').innerText = data.evaluation;
