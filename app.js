@@ -13,6 +13,11 @@ document.getElementById('profileForm').addEventListener('submit', async function
     formData.append('email', emailInput);
 
     try {
+
+        const response = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/test') 
+        const data = await response.json()
+        console.log(data)
+                                     
         const response = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/analyze', {
             method: 'POST',
             body: formData
