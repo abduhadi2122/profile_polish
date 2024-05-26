@@ -17,6 +17,6 @@ document.getElementById('profileForm').addEventListener('submit', async function
 
     // Fetch the test endpoint
     const testResponse = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/test');
-    console.log('Response Text:', testResponse); // Log the raw response text
+    console.log('Response Text:', testResponse.text()); // Log the raw response text
 
 });
