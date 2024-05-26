@@ -16,14 +16,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
     formData.append('email', emailInput);
 
     // Fetch the test endpoint
-    const testResponse = await fetch('https://59bc-2604-3d09-aa7a-9880-3060-2612-47aa-9033.ngrok-free.app/api/test');
-    const testText = await testResponse.text(); // Get response as text
-    console.log('Response Text:', testText); // Log the raw response text
+    const testResponse = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/test');
+    console.log('Response Text:', testResponse); // Log the raw response text
 
-    try {
-        const testResult = JSON.parse(testText); // Parse response as JSON
-        console.log('Response JSON:', testResult); // Log the JSON data
-    } catch (jsonError) {
-        console.error('Error parsing JSON:', jsonError);
-    }
 });
