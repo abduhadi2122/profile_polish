@@ -109,6 +109,12 @@ input[type="file"] {
     color: #fff;
 }
 
+#fileNames {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
 #spinner {
     width: 100%;
     display: flex;
@@ -124,7 +130,7 @@ input[type="file"] {
     border-radius: 50%;
     border: 8px solid #f3f3f3;
     border-top: 8px solid #800000;
-    animation: spin 2s linear infinite; /* Spin faster */
+    animation: spin 2s linear infinite;
     position: relative;
     display: flex;
     justify-content: center;
@@ -135,7 +141,7 @@ input[type="file"] {
     position: absolute;
     font-weight: bold;
     color: #800000;
-    transform: rotate(-90deg); /* Counteract the rotation */
+    transform: rotate(0deg); /* Ensure the text doesn't rotate */
 }
 
 @keyframes spin {
