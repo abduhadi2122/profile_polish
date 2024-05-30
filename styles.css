@@ -3,7 +3,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #ffebef; /* Light pink background for dating theme */
+    background: #ffe6e6; /* Light rose background */
 }
 
 .container {
@@ -12,7 +12,6 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    margin-top: -20px; /* Decrease top margin */
 }
 
 .content {
@@ -23,12 +22,18 @@ body {
     max-width: 1000px; /* Increased width */
     width: 100%;
     color: #333;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
     font-size: 3em; /* Increased font size */
     margin-bottom: 0.5em;
-    color: #e63946; /* Darker red color for headings */
+    color: #800000; /* Maroon color for headings */
     font-family: 'Pacifico', cursive; /* Handwritten stylish font for headings */
 }
 
@@ -46,7 +51,7 @@ form {
 label {
     margin-top: 10px;
     font-weight: 600;
-    color: #e63946;
+    color: #800000; /* Maroon color for labels */
 }
 
 input, textarea, button {
@@ -55,6 +60,7 @@ input, textarea, button {
     font-size: 1em;
     border-radius: 5px;
     border: 1px solid #ddd;
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input, textarea {
@@ -62,21 +68,23 @@ input, textarea {
 }
 
 button {
-    background: #e63946;
+    background: #800000; /* Maroon background for button */
     color: #fff;
     border: none;
     cursor: pointer;
     margin-top: 20px;
-    transition: background 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 30px; /* Rounded button */
+    width: auto; /* Auto width */
 }
 
 button:hover {
-    background: #d62839; /* Darker shade for hover effect */
+    background: #660000; /* Darker shade for hover effect */
 }
 
 #spinner {
     border: 16px solid #f3f3f3;
-    border-top: 16px solid #e63946; /* Spinner color matching theme */
+    border-top: 16px solid #800000; /* Spinner color matching theme */
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -93,13 +101,11 @@ button:hover {
 }
 
 #feedbackContainer {
-    overflow-y: auto;
-    max-height: 80vh;
     margin-top: 20px;
 }
 
 #feedbackContainer h2 {
-    color: #e63946;
+    color: #800000; /* Maroon color for feedback headings */
 }
 
 #backButton {
