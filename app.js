@@ -5,8 +5,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
   const bioInput = document.getElementById('bioInput').value;
   const submitButton = document.getElementById('submitButton');
   const spinner = document.getElementById('spinner');
-  const progressBar = document.getElementById('progress');
-  const progressText = document.getElementById('progressText');
+  const progressPercentage = document.getElementById('progressPercentage');
 
   const formData = new FormData();
 
@@ -19,18 +18,16 @@ document.getElementById('profileForm').addEventListener('submit', async function
   // Show spinner, hide submit button, and start progress bar animation
   submitButton.style.display = 'none';
   spinner.style.display = 'flex';
-  progressBar.style.width = '0'; // Reset progress bar
-  progressText.innerText = '0%';
-  
+  progressPercentage.innerText = '0%';
+
   let progress = 0;
   const interval = setInterval(() => {
     progress += 1;
-    progressBar.style.width = `${progress}%`;
-    progressText.innerText = `${progress}%`;
+    progressPercentage.innerText = `${progress}%`;
     if (progress >= 100) {
       clearInterval(interval);
     }
-  }, 150); // 150ms * 100 = 15s
+  }, 100); // 100ms * 100 = 10s
 
   try {
     const response = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/analyze', {
