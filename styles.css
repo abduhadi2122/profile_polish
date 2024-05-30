@@ -84,21 +84,26 @@ button:hover {
 }
 
 #spinner {
-    border: 16px solid #f3f3f3;
-    border-top: 16px solid #800000; /* Spinner color matching theme */
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 2s linear infinite;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px auto;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+#progressBar {
+    width: 80%;
+    height: 20px;
+    background: #f3f3f3;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progress {
+    height: 100%;
+    background: #800000; /* Maroon color */
+    width: 0;
+    transition: width 10s linear;
 }
 
 #feedbackContainer {
