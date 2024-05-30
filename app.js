@@ -39,8 +39,8 @@ document.getElementById('profileForm').addEventListener('submit', async function
     document.getElementById('formContainer').style.display = 'none';
 
     // Display the evaluation and recommendations
-    document.getElementById('evaluation').innerText = responseData.evaluation;
-    document.getElementById('recommendations').innerText = responseData.recommendations;
+    document.getElementById('pictures').innerText = responseData.pictures;
+    document.getElementById('bio').innerText = responseData.bio;
 
     // Show the feedback container
     document.getElementById('feedbackContainer').style.display = 'block';
