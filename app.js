@@ -13,6 +13,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
   }
   formData.append('bio', bioInput);
 
+  // Show spinner
   spinner.style.display = 'block';
 
   try {
@@ -28,19 +29,30 @@ document.getElementById('profileForm').addEventListener('submit', async function
     const responseData = await response.json();
     console.log("Response Data:", responseData);
 
+    // Hide the form container
     document.getElementById('formContainer').style.display = 'none';
+    document.getElementById('feedbackContainer').style.display = 'block';
+
+    // Display the feedback
     document.getElementById('pictures').innerText = responseData.pictures;
     document.getElementById('bio').innerText = responseData.bio;
-    document.getElementById('feedbackContainer').style.display = 'block';
+
   } catch (error) {
     console.error("Fetch error:", error);
   } finally {
+    // Hide spinner
     spinner.style.display = 'none';
   }
 });
 
 document.getElementById('backButton').addEventListener('click', function() {
+  // Hide the feedback container
   document.getElementById('feedbackContainer').style.display = 'none';
+
+  // Reset form values
+  document.getElementById('profileForm').reset();
+
+  // Show the form container
   document.getElementById('formContainer').style.display = 'block';
 });
 
