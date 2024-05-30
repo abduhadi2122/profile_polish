@@ -86,37 +86,50 @@ button:hover {
 #spinner {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 20px auto;
-    flex-direction: column;
 }
 
-#progressBar {
-    width: 80%;
-    height: 20px;
-    background: #f3f3f3;
-    border-radius: 10px;
-    overflow: hidden;
+#progressCircle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #800000;
+    animation: spin 10s linear infinite, progress 10s linear infinite;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#progress {
-    height: 100%;
-    background: #800000; /* Maroon color */
-    width: 0;
-    transition: width 15s linear;
-}
-
-#progressText {
+#progressPercentage {
     position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
     font-weight: bold;
-    color: #fff;
+    color: #800000;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes progress {
+    0% { stroke-dashoffset: 100; }
+    100% { stroke-dashoffset: 0; }
+}
+
+#evaluatingText {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #800000;
+    animation: blink 1s steps(5, start) infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
 #feedbackContainer {
