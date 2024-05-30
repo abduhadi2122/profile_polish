@@ -3,7 +3,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+    background: #f4f4f4; /* Light neutral background */
 }
 
 .container {
@@ -19,7 +19,7 @@ body {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    max-width: 1000px;
+    max-width: 1000px; /* Increased width */
     width: 100%;
     color: #333;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -31,14 +31,14 @@ body {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 3em; /* Increased font size */
     margin-bottom: 0.5em;
-    color: #800000;
-    font-family: 'Pacifico', cursive;
+    color: #800000; /* Maroon color for headings */
+    font-family: 'Pacifico', cursive; /* Handwritten stylish font for headings */
 }
 
 p {
-    font-size: 1.2em;
+    font-size: 1.2em; /* Slightly increased font size */
     margin-bottom: 1em;
     color: #555;
 }
@@ -51,7 +51,7 @@ form {
 label {
     margin-top: 10px;
     font-weight: 600;
-    color: #800000;
+    color: #800000; /* Maroon color for labels */
 }
 
 input, textarea, button {
@@ -64,23 +64,23 @@ input, textarea, button {
 }
 
 input, textarea {
-    background: #f4f4f4;
+    background: #f4f4f4; /* Light neutral background for input fields */
 }
 
 button {
-    background: #800000;
+    background: #800000; /* Maroon background for button */
     color: #fff;
     border: none;
     cursor: pointer;
     margin-top: 20px;
     padding: 10px 40px;
-    border-radius: 30px;
-    width: fit-content;
-    align-self: center;
+    border-radius: 30px; /* Rounded button */
+    width: fit-content; /* Auto width */
+    align-self: center; /* Center the button */
 }
 
 button:hover {
-    background: #660000;
+    background: #660000; /* Darker shade for hover effect */
 }
 
 #spinner {
@@ -98,7 +98,7 @@ button:hover {
     border-radius: 50%;
     border: 8px solid #f3f3f3;
     border-top: 8px solid #800000;
-    animation: spin 10s linear infinite;
+    animation: spin 5s linear infinite; /* Spin faster */
     position: relative;
     display: flex;
     justify-content: center;
@@ -109,6 +109,7 @@ button:hover {
     position: absolute;
     font-weight: bold;
     color: #800000;
+    transform: none; /* Ensure the text doesn't rotate */
 }
 
 @keyframes spin {
@@ -132,24 +133,24 @@ button:hover {
 }
 
 #feedbackContainer h2 {
-    color: #800000;
+    color: #800000; /* Maroon color for feedback headings */
 }
 
 #backButton {
-    background: #800000;
+    background: #800000; /* Match the back button with submit button */
     color: #fff;
     border: none;
     cursor: pointer;
     padding: 10px 40px;
-    border-radius: 30px;
-    width: fit-content;
-    align-self: center;
-    margin: 20px auto;
-    display: block;
+    border-radius: 30px; /* Rounded button */
+    width: fit-content; /* Auto width */
+    align-self: center; /* Center the button */
+    margin: 20px auto; /* Center the button */
+    display: block; /* Center the button */
 }
 
 #backButton:hover {
-    background: #660000;
+    background: #660000; /* Darker shade for hover effect */
 }
 
 @media (max-width: 768px) {
@@ -158,7 +159,7 @@ button:hover {
     }
 
     h1 {
-        font-size: 2em;
+        font-size: 2em; /* Adjusted for smaller screens */
     }
 
     p, label, input, textarea, button, #backButton {
