@@ -3,7 +3,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
+    background: #ffebef; /* Light pink background for dating theme */
 }
 
 .container {
@@ -12,26 +12,30 @@ body {
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    margin-top: -20px; /* Decrease top margin */
 }
 
 .content {
     background: #fff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px; /* Increased width */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 1000px; /* Increased width */
     width: 100%;
+    color: #333;
 }
 
 h1 {
-    font-size: 2.5em; /* Increased font size */
+    font-size: 3em; /* Increased font size */
     margin-bottom: 0.5em;
-    color: #333; /* Darker color for better readability */
+    color: #e63946; /* Darker red color for headings */
+    font-family: 'Pacifico', cursive; /* Handwritten stylish font for headings */
 }
 
 p {
-    font-size: 1.1em; /* Slightly increased font size */
+    font-size: 1.2em; /* Slightly increased font size */
     margin-bottom: 1em;
+    color: #555;
 }
 
 form {
@@ -42,6 +46,7 @@ form {
 label {
     margin-top: 10px;
     font-weight: 600;
+    color: #e63946;
 }
 
 input, textarea, button {
@@ -52,8 +57,12 @@ input, textarea, button {
     border: 1px solid #ddd;
 }
 
+input, textarea {
+    background: #ffe4e6; /* Light pink background for input fields */
+}
+
 button {
-    background: #333;
+    background: #e63946;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -62,12 +71,12 @@ button {
 }
 
 button:hover {
-    background: #555;
+    background: #d62839; /* Darker shade for hover effect */
 }
 
 #spinner {
     border: 16px solid #f3f3f3;
-    border-top: 16px solid #333;
+    border-top: 16px solid #e63946; /* Spinner color matching theme */
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -87,6 +96,10 @@ button:hover {
     overflow-y: auto;
     max-height: 80vh;
     margin-top: 20px;
+}
+
+#feedbackContainer h2 {
+    color: #e63946;
 }
 
 #backButton {
