@@ -7,7 +7,12 @@ document.getElementById('profileForm').addEventListener('submit', async function
   const emailInput = document.getElementById('emailInput').value;
 
   const formData = new FormData();
-  Array.from(fileInput.files).forEach(file => formData.append('files', file));
+
+  for (let file of fileInput.files) {
+      const base64 = await toBase64(file);
+      formData.append('files', base64);
+  }
+
   formData.append('bio', bioInput);
   formData.append('name', nameInput);
   formData.append('email', emailInput);
@@ -43,3 +48,13 @@ document.getElementById('profileForm').addEventListener('submit', async function
     console.error("Fetch error:", error);
   }
 });
+
+
+function toBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = error => reject(error);
+    });
+}
