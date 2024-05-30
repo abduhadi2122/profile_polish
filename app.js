@@ -67,3 +67,11 @@ function toBase64(file) {
         reader.onerror = error => reject(error);
     });
 }
+
+// Submit form when Enter key is pressed
+document.getElementById('profileForm').addEventListener('keydown', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    document.getElementById('submitButton').click();
+  }
+});
