@@ -8,7 +8,6 @@ document.getElementById('profileForm').addEventListener('submit', async function
 
   for (let file of fileInput.files) {
       const base64 = await toBase64(file);
-      console.log(base64)
       formData.append('files', base64);
   }
   formData.append('bio', bioInput);
@@ -33,9 +32,8 @@ document.getElementById('profileForm').addEventListener('submit', async function
     // Hide the form container
     document.getElementById('formContainer').style.display = 'none';
 
-    // Display the evaluation and recommendations
-    document.getElementById('pictures').innerText = responseData.pictures;
-    document.getElementById('bio').innerText = responseData.bio;
+    // Display the feedback
+    document.getElementById('feedback').innerText = responseData;
 
     // Show the feedback container
     document.getElementById('feedbackContainer').style.display = 'block';
