@@ -33,7 +33,9 @@ document.getElementById('profileForm').addEventListener('submit', async function
     document.getElementById('formContainer').style.display = 'none';
 
     // Display the feedback
-    document.getElementById('feedback').innerText = responseData;
+    document.getElementById('pictures').innerText = responseData.pictures;
+    document.getElementById('bio').innerText = responseData.bio;
+    
 
     // Show the feedback container
     document.getElementById('feedbackContainer').style.display = 'block';
