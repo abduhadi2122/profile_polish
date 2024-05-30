@@ -13,9 +13,9 @@ document.getElementById('profileForm').addEventListener('submit', async function
   formData.append('bio', bioInput);
 
   try {
-    const test = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/test');
-    const testData = await test.json();
-    console.log(testData);
+    //const test = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/test');
+    //const testData = await test.json();
+    //console.log(testData);
 
     const response = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/analyze', {
       method: 'POST',
