@@ -3,6 +3,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
 
   const fileInput = document.getElementById('fileInput');
   const bioInput = document.getElementById('bioInput').value;
+  const spinner = document.getElementById('spinner');
 
   const formData = new FormData();
 
@@ -12,11 +13,9 @@ document.getElementById('profileForm').addEventListener('submit', async function
   }
   formData.append('bio', bioInput);
 
-  try {
-    //const test = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/test');
-    //const testData = await test.json();
-    //console.log(testData);
+  spinner.style.display = 'block';
 
+  try {
     const response = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/analyze', {
       method: 'POST',
       body: formData
@@ -29,22 +28,21 @@ document.getElementById('profileForm').addEventListener('submit', async function
     const responseData = await response.json();
     console.log("Response Data:", responseData);
 
-    // Hide the form container
     document.getElementById('formContainer').style.display = 'none';
-
-    // Display the feedback
     document.getElementById('pictures').innerText = responseData.pictures;
     document.getElementById('bio').innerText = responseData.bio;
-    
-
-    // Show the feedback container
     document.getElementById('feedbackContainer').style.display = 'block';
-
   } catch (error) {
     console.error("Fetch error:", error);
+  } finally {
+    spinner.style.display = 'none';
   }
 });
 
+document.getElementById('backButton').addEventListener('click', function() {
+  document.getElementById('feedbackContainer').style.display = 'none';
+  document.getElementById('formContainer').style.display = 'block';
+});
 
 function toBase64(file) {
     return new Promise((resolve, reject) => {
