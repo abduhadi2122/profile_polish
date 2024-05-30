@@ -3,6 +3,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
 
   const fileInput = document.getElementById('fileInput');
   const bioInput = document.getElementById('bioInput').value;
+  const submitButton = document.getElementById('submitButton');
   const spinner = document.getElementById('spinner');
 
   const formData = new FormData();
@@ -13,7 +14,8 @@ document.getElementById('profileForm').addEventListener('submit', async function
   }
   formData.append('bio', bioInput);
 
-  // Show spinner
+  // Show spinner and hide submit button
+  submitButton.style.display = 'none';
   spinner.style.display = 'block';
 
   try {
@@ -54,6 +56,7 @@ document.getElementById('backButton').addEventListener('click', function() {
 
   // Show the form container
   document.getElementById('formContainer').style.display = 'block';
+  document.getElementById('submitButton').style.display = 'block'; // Show the submit button again
 });
 
 function toBase64(file) {
