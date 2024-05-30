@@ -10,6 +10,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
 
   for (let file of fileInput.files) {
       const base64 = await toBase64(file);
+      console.log(base64)
       formData.append('files', base64);
   }
 
