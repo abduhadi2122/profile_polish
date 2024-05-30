@@ -4,13 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const spinner = document.getElementById('spinner');
     const progressPercentage = document.getElementById('progressPercentage');
     const bioInput = document.getElementById('bioInput');
+    const fileInput = document.getElementById('fileInput');
+    const fileNames = document.getElementById('fileNames');
+
+    fileInput.addEventListener('change', function() {
+        const files = Array.from(fileInput.files).map(file => file.name).join(', ');
+        fileNames.textContent = files;
+    });
 
     profileForm.addEventListener('submit', async function(event) {
         event.preventDefault();
 
-        const fileInput = document.getElementById('fileInput');
         const bioInputValue = bioInput.value;
-
         const formData = new FormData();
 
         for (let file of fileInput.files) {
@@ -68,6 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Reset form values
         document.getElementById('profileForm').reset();
+        fileNames.textContent = '';
 
         // Show the form container
         document.getElementById('formContainer').style.display = 'block';
