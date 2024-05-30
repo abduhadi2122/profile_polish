@@ -3,12 +3,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitButton = document.getElementById('submitButton');
     const spinner = document.getElementById('spinner');
     const progressPercentage = document.getElementById('progressPercentage');
+    const bioInput = document.getElementById('bioInput');
 
     profileForm.addEventListener('submit', async function(event) {
         event.preventDefault();
 
         const fileInput = document.getElementById('fileInput');
-        const bioInput = document.getElementById('bioInput').value;
+        const bioInputValue = bioInput.value;
 
         const formData = new FormData();
 
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const base64 = await toBase64(file);
             formData.append('files', base64);
         }
-        formData.append('bio', bioInput);
+        formData.append('bio', bioInputValue);
 
         // Show spinner, hide submit button, and start progress bar animation
         submitButton.style.display = 'none';
@@ -84,9 +85,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Submit form when Enter key is pressed
     profileForm.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
+        if (event.key === 'Enter' && document.activeElement === bioInput) {
             event.preventDefault();
-            submitButton.click();
+            bioInput.blur(); // Remove cursor from bio box
         }
     });
 });
