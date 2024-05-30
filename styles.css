@@ -123,18 +123,14 @@ input[type="file"] {
     margin: 20px auto;
 }
 
-#progressCircle {
-    display: none; /* Hide the circle */
-}
-
 #progressPercentage {
     font-size: 2em;
     font-weight: bold;
     color: #800000;
+    margin-bottom: 10px;
 }
 
 #evaluatingText {
-    margin-top: 10px;
     font-weight: bold;
     color: #800000;
     animation: blink 1s steps(5, start) infinite;
