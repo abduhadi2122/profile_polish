@@ -16,9 +16,12 @@
       
       <div id="formContainer">
         <form id="profileForm" enctype="multipart/form-data">
-          <label for="fileInput" class="custom-file-upload">Choose File</label>
-          <input type="file" id="fileInput" name="file" required multiple />
-          <span id="fileNames"></span>
+          <label for="fileInput">Your Pictures (required)</label>
+          <div class="file-upload-wrapper">
+            <label for="fileInput" class="custom-file-upload">Choose Files</label>
+            <input type="file" id="fileInput" name="file" required multiple />
+            <span id="fileNames"></span>
+          </div>
           
           <label for="bioInput">Your Bio (required)</label>
           <textarea id="bioInput" name="bio" required></textarea>
