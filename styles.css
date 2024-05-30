@@ -89,6 +89,7 @@ button:hover {
     justify-content: center;
     align-items: center;
     margin: 20px auto;
+    flex-direction: column;
 }
 
 #progressBar {
@@ -97,13 +98,25 @@ button:hover {
     background: #f3f3f3;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
 }
 
 #progress {
     height: 100%;
     background: #800000; /* Maroon color */
     width: 0;
-    transition: width 10s linear;
+    transition: width 15s linear;
+}
+
+#progressText {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #fff;
 }
 
 #feedbackContainer {
