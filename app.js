@@ -6,6 +6,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
   const submitButton = document.getElementById('submitButton');
   const spinner = document.getElementById('spinner');
   const progressBar = document.getElementById('progress');
+  const progressText = document.getElementById('progressText');
 
   const formData = new FormData();
 
@@ -19,9 +20,17 @@ document.getElementById('profileForm').addEventListener('submit', async function
   submitButton.style.display = 'none';
   spinner.style.display = 'flex';
   progressBar.style.width = '0'; // Reset progress bar
-  setTimeout(() => {
-    progressBar.style.width = '100%';
-  }, 100); // Start the progress bar animation
+  progressText.innerText = '0%';
+  
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += 1;
+    progressBar.style.width = `${progress}%`;
+    progressText.innerText = `${progress}%`;
+    if (progress >= 100) {
+      clearInterval(interval);
+    }
+  }, 150); // 150ms * 100 = 15s
 
   try {
     const response = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/analyze', {
