@@ -3,7 +3,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: #ffe6e6; /* Light rose background */
+    background: #f4f4f4; /* Light neutral background */
 }
 
 .container {
@@ -64,7 +64,7 @@ input, textarea, button {
 }
 
 input, textarea {
-    background: #ffe4e6; /* Light pink background for input fields */
+    background: #f4f4f4; /* Light neutral background for input fields */
 }
 
 button {
@@ -73,9 +73,10 @@ button {
     border: none;
     cursor: pointer;
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 10px 40px;
     border-radius: 30px; /* Rounded button */
-    width: auto; /* Auto width */
+    width: fit-content; /* Auto width */
+    align-self: center; /* Center the button */
 }
 
 button:hover {
@@ -109,18 +110,20 @@ button:hover {
 }
 
 #backButton {
-    margin-top: 20px;
-    background: #333;
+    background: #800000; /* Match the back button with submit button */
     color: #fff;
     border: none;
     cursor: pointer;
-    padding: 10px;
-    font-size: 1em;
-    border-radius: 5px;
+    padding: 10px 40px;
+    border-radius: 30px; /* Rounded button */
+    width: fit-content; /* Auto width */
+    align-self: center; /* Center the button */
+    margin: 20px auto; /* Center the button */
+    display: block; /* Center the button */
 }
 
 #backButton:hover {
-    background: #555;
+    background: #660000; /* Darker shade for hover effect */
 }
 
 @media (max-width: 768px) {
