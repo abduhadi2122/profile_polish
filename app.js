@@ -89,11 +89,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Submit form when Enter key is pressed
-    profileForm.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter' && document.activeElement === bioInput) {
+    // Submit form when Enter key is pressed in the bio textarea
+    bioInput.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
             event.preventDefault();
-            bioInput.blur(); // Remove cursor from bio box
+            submitButton.click();
         }
     });
 });
