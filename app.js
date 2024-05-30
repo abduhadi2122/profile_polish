@@ -3,8 +3,6 @@ document.getElementById('profileForm').addEventListener('submit', async function
 
   const fileInput = document.getElementById('fileInput');
   const bioInput = document.getElementById('bioInput').value;
-  const nameInput = document.getElementById('nameInput').value;
-  const emailInput = document.getElementById('emailInput').value;
 
   const formData = new FormData();
 
@@ -13,10 +11,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
       console.log(base64)
       formData.append('files', base64);
   }
-
   formData.append('bio', bioInput);
-  formData.append('name', nameInput);
-  formData.append('email', emailInput);
 
   try {
     const test = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/test');
