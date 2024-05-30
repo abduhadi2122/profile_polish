@@ -5,6 +5,7 @@ document.getElementById('profileForm').addEventListener('submit', async function
   const bioInput = document.getElementById('bioInput').value;
   const submitButton = document.getElementById('submitButton');
   const spinner = document.getElementById('spinner');
+  const progressBar = document.getElementById('progress');
 
   const formData = new FormData();
 
@@ -14,9 +15,13 @@ document.getElementById('profileForm').addEventListener('submit', async function
   }
   formData.append('bio', bioInput);
 
-  // Show spinner and hide submit button
+  // Show spinner, hide submit button, and start progress bar animation
   submitButton.style.display = 'none';
-  spinner.style.display = 'block';
+  spinner.style.display = 'flex';
+  progressBar.style.width = '0'; // Reset progress bar
+  setTimeout(() => {
+    progressBar.style.width = '100%';
+  }, 100); // Start the progress bar animation
 
   try {
     const response = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/analyze', {
