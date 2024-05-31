@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(base64_compressed)
                 const base64 = await toBase64(file);
                 console.log(base64)
-                formData.append('files', base64);
+                formData.append('files', base64_compressed);
               } 
             catch (error) {
                 console.error('Error processing file:', file, error);
