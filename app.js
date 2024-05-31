@@ -21,9 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let file of fileInput.files) {
             try {
                 const base64_compressed = await compressAndConvertToBase64(file);
-                console.log(base64_compressed)
-                const base64 = await toBase64(file);
-                console.log(base64)
                 formData.append('files', base64_compressed);
               } 
             catch (error) {
@@ -45,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (progress >= 100) {
                 clearInterval(interval);
             }
-        }, 120); // 100ms * 100 = 10s
+        }, 100); // 100ms * 100 = 10s
 
         try {
             const response = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/analyze', {
