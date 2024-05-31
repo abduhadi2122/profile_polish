@@ -63,7 +63,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('feedbackContainer').style.display = 'block';
 
             // Display the feedback
-            document.getElementById('feedback').innerText = responseData.feedback;
+            const convertedHTML = convertMarkdownToHTML(responseData.feedback);
+            document.getElementById('feedback').innerText = convertedHTML;
 
         } catch (error) {
             console.error("Fetch error:", error);
@@ -131,6 +132,17 @@ document.addEventListener('DOMContentLoaded', function() {
       };
     });
   }
+
+    function convertMarkdownToHTML(text) {
+    // Replace **bold** with <strong>bold</strong>
+    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+    // Replace ## Heading with <h2>Heading</h2>
+    text = text.replace(/## (.*?)\n/g, '<h2>$1</h2>');
+    
+    // Return the converted text
+    return text;
+    }
     
     
     // Submit form when Enter key is pressed in the bio textarea
