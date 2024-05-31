@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let file of fileInput.files) {
             try {
                 const base64_compressed = await compressAndConvertToBase64(file);
-                console.log(base64_compressed)
+                //console.log(base64_compressed)
                 formData.append('images', base64_compressed);
               } 
             catch (error) {
