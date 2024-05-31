@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
   // Function to convert an image file to a compressed base64 string
-  async function compressAndConvertToBase64(file, quality = 0.7) {
+  async function compressAndConvertToBase64(file, maxWidth = 500, maxHeight = 500, maxFileSizeKB = 100) {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
       reader.readAsDataURL(file);
@@ -99,15 +99,26 @@ document.addEventListener('DOMContentLoaded', function() {
           const canvas = document.createElement('canvas');
           const ctx = canvas.getContext('2d');
 
-          // Set canvas dimensions to the image dimensions
-          canvas.width = img.width;
-          canvas.height = img.height;
+          // Calculate the scaling factor to maintain aspect ratio
+          const scale = Math.min(maxWidth / img.width, maxHeight / img.height);
+          const width = img.width * scale;
+          const height = img.height * scale;
 
-          // Draw the image on the canvas
-          ctx.drawImage(img, 0, 0);
+          // Set canvas dimensions to the scaled dimensions
+          canvas.width = width;
+          canvas.height = height;
 
-          // Convert the canvas image to a base64 string with the specified quality
-          const compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+          // Draw the scaled image on the canvas
+          ctx.drawImage(img, 0, 0, width, height);
+
+          let quality = 0.7;
+          let compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+
+          // Adjust quality to ensure the size is below the specified maxFileSizeKB
+          while (compressedBase64.length > maxFileSizeKB * 1024 && quality > 0.1) {
+            quality -= 0.1;
+            compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+          }
 
           // Resolve the promise with the base64 string
           resolve(compressedBase64);
@@ -122,14 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
     
-    function toBase64(file) {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = () => resolve(reader.result.split(',')[1]);
-            reader.onerror = error => reject(error);
-        });
-    }
     
     // Submit form when Enter key is pressed in the bio textarea
     bioInput.addEventListener('keydown', function(event) {
