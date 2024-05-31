@@ -134,14 +134,17 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
     function convertMarkdownToHTML(text) {
-    // Replace **bold** with <strong>bold</strong>
-    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Replace ### Heading with <h3>Heading</h3>
+        text = text.replace(/###\s*(.*?)\n/g, '<h3>$1</h3>\n');
     
-    // Replace ## Heading with <h2>Heading</h2>
-    text = text.replace(/## (.*?)\n/g, '<h2>$1</h2>');
+        // Replace ## Heading with <h2>Heading</h2>
+        text = text.replace(/##\s*(.*?)\n/g, '<h2>$1</h2>\n');
     
-    // Return the converted text
-    return text;
+        // Replace **bold** with <strong>bold</strong>
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    
+        // Return the converted text
+        return text;
     }
     
     
