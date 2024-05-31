@@ -63,8 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('feedbackContainer').style.display = 'block';
 
             // Display the feedback
-            document.getElementById('pictures').innerText = responseData.pictures;
-            document.getElementById('bio').innerText = responseData.bio;
+            document.getElementById('feedback').innerText = responseData.feedback;
 
         } catch (error) {
             console.error("Fetch error:", error);
