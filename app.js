@@ -18,10 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const bioInputValue = bioInput.value;
         const formData = new FormData();
 
-        for (let file of fileInput.files) {
-            const base64 = await toBase64(file);
+        try {
+            const base64 = await compressAndConvertToBase64(file);
             formData.append('files', base64);
-        }
+          } 
+        catch (error) {
+            console.error('Error processing file:', file, error);
+          }
         formData.append('bio', bioInputValue);
 
         // Show spinner, hide submit button, and start progress bar animation
@@ -80,6 +83,41 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('submitButton').style.display = 'block'; // Show the submit button again
     });
 
+  // Function to convert an image file to a compressed base64 string
+  async function compressAndConvertToBase64(file, quality = 0.7) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function(event) {
+        const img = new Image();
+        img.src = event.target.result;
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+
+          // Set canvas dimensions to the image dimensions
+          canvas.width = img.width;
+          canvas.height = img.height;
+
+          // Draw the image on the canvas
+          ctx.drawImage(img, 0, 0);
+
+          // Convert the canvas image to a base64 string with the specified quality
+          const compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+
+          // Resolve the promise with the base64 string
+          resolve(compressedBase64);
+        };
+        img.onerror = function(error) {
+          reject(error);
+        };
+      };
+      reader.onerror = function(error) {
+        reject(error);
+      };
+    });
+  }
+    
     function toBase64(file) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -88,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
             reader.onerror = error => reject(error);
         });
     }
-
+    
     // Submit form when Enter key is pressed in the bio textarea
     bioInput.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
