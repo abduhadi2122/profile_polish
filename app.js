@@ -142,6 +142,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
    function convertMarkdownToHTML(text) {
+
+    // Replace #### Heading with <h3>Heading</h3>
+    text = text.replace(/####\s*(.*?)\n/g, '<h3>$1</h3>\n');
+       
     // Replace ### Heading with <h3>Heading</h3>
     text = text.replace(/###\s*(.*?)\n/g, '<h3>$1</h3>\n');
 
