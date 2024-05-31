@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 const base64_compressed = await compressAndConvertToBase64(file);
                 console.log(base64_compressed)
-                formData.append('files', base64_compressed);
+                formData.append('images', base64_compressed);
               } 
             catch (error) {
                 console.error('Error processing file:', file, error);
