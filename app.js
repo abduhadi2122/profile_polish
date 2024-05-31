@@ -133,19 +133,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-    function convertMarkdownToHTML(text) {
-        // Replace ### Heading with <h3>Heading</h3>
-        text = text.replace(/###\s*(.*?)\n/g, '<h3>$1</h3>\n');
-    
-        // Replace ## Heading with <h2>Heading</h2>
-        text = text.replace(/##\s*(.*?)\n/g, '<h2>$1</h2>\n');
-    
-        // Replace **bold** with <strong>bold</strong>
-        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-    
-        // Return the converted text
-        return text;
-    }
+   function convertMarkdownToHTML(text) {
+    // Replace ### Heading with <h3>Heading</h3>
+    text = text.replace(/###\s*(.*?)\n/g, '<h3>$1</h3>\n');
+
+    // Replace ## Heading with <h2>Heading</h2>
+    text = text.replace(/##\s*(.*?)\n/g, '<h2>$1</h2>\n');
+
+    // Replace **bold** with <strong>bold</strong>
+    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+    // Replace newline characters with <br> tags
+    text = text.replace(/\n/g, '<br>');
+
+    // Return the converted text
+    return text;
+}
     
     
     // Submit form when Enter key is pressed in the bio textarea
