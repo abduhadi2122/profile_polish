@@ -156,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
     text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
     // Replace newline characters with <br> tags
-    text = text.replace(/\n/g, '<br>');
+    text = text.replace(/\n/g, '');
 
     // Return the converted text
     return text;
