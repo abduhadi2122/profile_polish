@@ -63,8 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('feedbackContainer').style.display = 'block';
 
             // Display the feedback
-            const convertedHTML = convertMarkdownToHTML(responseData.feedback);
-            document.getElementById('feedback').innerHTML = convertedHTML;
+            //const convertedHTML = convertMarkdownToHTML(responseData.feedback);
+            const jsonObject = JSON.parse(responseData.feedback);
+            document.getElementById('feedback').innerText = jsonObject.general_feedback;
 
         } catch (error) {
             console.error("Fetch error:", error);
