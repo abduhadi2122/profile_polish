@@ -18,13 +18,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const bioInputValue = bioInput.value;
         const formData = new FormData();
 
-        try {
-            const base64 = await compressAndConvertToBase64(file);
-            formData.append('files', base64);
-          } 
-        catch (error) {
-            console.error('Error processing file:', file, error);
-          }
+        for (let file of fileInput.files) {
+            try {
+                const base64 = await compressAndConvertToBase64(file);
+                formData.append('files', base64);
+              } 
+            catch (error) {
+                console.error('Error processing file:', file, error);
+              }
+            }
+        
         formData.append('bio', bioInputValue);
 
         // Show spinner, hide submit button, and start progress bar animation
