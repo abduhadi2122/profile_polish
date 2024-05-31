@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (progress >= 100) {
                 clearInterval(interval);
             }
-        }, 100); // 100ms * 100 = 10s
+        }, 120); // 100ms * 100 = 10s
 
         try {
             const response = await fetch('https://ymstlg2yd9.execute-api.us-east-1.amazonaws.com/prod/analyze', {
