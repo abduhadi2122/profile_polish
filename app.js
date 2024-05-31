@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Display the feedback
             const convertedHTML = convertMarkdownToHTML(responseData.feedback);
-            document.getElementById('feedback').innerText = convertedHTML;
+            document.getElementById('feedback').innerHTML = convertedHTML;
 
         } catch (error) {
             console.error("Fetch error:", error);
