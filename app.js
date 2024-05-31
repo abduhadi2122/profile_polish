@@ -63,15 +63,15 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('feedbackContainer').style.display = 'block';
 
             // Display the feedback
-            //const convertedHTML = convertMarkdownToHTML(responseData.feedback);
-            const jsonObject = JSON.parse(responseData.feedback);
-            document.getElementById('feedback').innerText = jsonObject.general_feedback;
-            document.getElementById('photography').innerText = jsonObject.ratings.photography;
-            document.getElementById('style').innerText = jsonObject.ratings.style;
-            document.getElementById('fitness').innerText = jsonObject.ratings.fitness;
-            document.getElementById('social_status').innerText = jsonObject.ratings.social_status;
-            document.getElementById('pictures').innerText = jsonObject.suggested_improvements.pictures;
-            document.getElementById('bio').innerText = jsonObject.suggested_improvements.bio;
+            const convertedHTML = convertMarkdownToHTML(responseData.feedback);
+            //const jsonObject = JSON.parse(responseData.feedback);
+            document.getElementById('feedback').innerHTML = convertedHTML;
+            //document.getElementById('photography').innerText = jsonObject.ratings.photography;
+            //document.getElementById('style').innerText = jsonObject.ratings.style;
+            //document.getElementById('fitness').innerText = jsonObject.ratings.fitness;
+            //document.getElementById('social_status').innerText = jsonObject.ratings.social_status;
+            //document.getElementById('pictures').innerText = jsonObject.suggested_improvements.pictures;
+            //document.getElementById('bio').innerText = jsonObject.suggested_improvements.bio;
             
 
         } catch (error) {
