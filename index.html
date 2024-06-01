@@ -7,6 +7,7 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -23,38 +24,45 @@
 
     <!-- Content -->
     <div class="container d-flex justify-content-center align-items-center min-vh-100 position-relative">
-      <div class="content p-4 rounded shadow-lg">
-        <h1 class="text-center">Level up your dating game 💃🏼</h1>
-        <p class="text-center">We can help enhance your dating profile by providing feedback and suggesting improvements.</p>
-        
-        <div id="formContainer">
-          <form id="profileForm" enctype="multipart/form-data" class="needs-validation" novalidate>
-            <div class="form-group">
-              <label for="fileInput">Your Pictures (required)</label>
-              <div class="custom-file">
-                <input type="file" class="custom-file-input" id="fileInput" name="file" accept="image/*" required multiple>
-                <label class="custom-file-label" for="fileInput">Choose Files</label>
-              </div>
-              <span id="fileNames" class="form-text text-muted"></span>
-            </div>
-
-            <div class="form-group mt-3">
-              <label for="bioInput">Your Bio (required)</label>
-              <textarea id="bioInput" name="bio" class="form-control" required></textarea>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block" id="submitButton">Submit for Review</button>
-
-            <div id="spinner" class="text-center mt-3" style="display: none;">
-              <div id="progressPercentage">0%</div>
-              <div id="evaluatingText">Analyzing your profile...</div>
-            </div>
-          </form>
+      <div class="row w-100">
+        <div class="col-lg-8 d-none d-lg-flex justify-content-center align-items-center">
+          <h1 class="text-center handwritten">Level up your dating game 💃🏼</h1>
         </div>
+        <div class="col-lg-4 col-md-6 col-sm-8 col-10 mx-auto">
+          <div class="content p-4 rounded shadow-lg">
+            <h1 class="text-center d-lg-none handwritten">Level up your dating game 💃🏼</h1>
+            <p class="text-center">We can help enhance your dating profile by providing feedback and suggesting improvements.</p>
+            
+            <div id="formContainer">
+              <form id="profileForm" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <div class="form-group">
+                  <label for="fileInput">Your Pictures (required)</label>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="fileInput" name="file" accept="image/*" required multiple>
+                    <label class="custom-file-label" for="fileInput">Choose Files</label>
+                  </div>
+                  <span id="fileNames" class="form-text text-muted"></span>
+                </div>
 
-        <div id="feedbackContainer" class="mt-3" style="display: none;">
-          <div id="feedback"></div>
-          <button id="backButton" class="btn btn-secondary btn-block mt-3">Back</button>
+                <div class="form-group mt-3">
+                  <label for="bioInput">Your Bio (required)</label>
+                  <textarea id="bioInput" name="bio" class="form-control" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" id="submitButton">Submit for Review</button>
+
+                <div id="spinner" class="text-center mt-3" style="display: none;">
+                  <div id="progressPercentage">0%</div>
+                  <div id="evaluatingText">Analyzing your profile...</div>
+                </div>
+              </form>
+            </div>
+
+            <div id="feedbackContainer" class="mt-3" style="display: none;">
+              <div id="feedback"></div>
+              <button id="backButton" class="btn btn-secondary btn-block mt-3">Back</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
