@@ -41,9 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
             progressPercentage.innerText = `${progress}%`;
             if (progress >= 100) {
                 clearInterval(interval);
-                $('#feedbackModal').modal('show');
-                spinner.style.display = 'none';
-                submitButton.style.display = 'block';
             }
         }, 100); // 100ms * 100 = 10s
 
@@ -60,9 +57,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const responseData = await response.json();
             console.log("Response Data:", responseData);
 
+            // Hide the form container
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('feedbackContainer').style.display = 'block';
+
             // Display the feedback
             const convertedHTML = convertMarkdownToHTML(responseData.feedback);
             document.getElementById('feedback').innerHTML = convertedHTML;
+
+            // Open the feedback modal
+            $('#feedbackModal').modal('show');
+            spinner.style.display = 'none';
+            submitButton.style.display = 'block';
 
         } catch (error) {
             console.error("Fetch error:", error);
