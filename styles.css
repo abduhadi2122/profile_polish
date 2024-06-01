@@ -30,25 +30,17 @@ body {
 .content {
     background: rgba(0, 0, 0, 0.5); /* Transparent dark background */
     color: #fff;
-}
-
-.handwritten {
-    font-family: 'Indie Flower', cursive;
-    font-size: 2.5em;
-    color: #fff;
-    text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Modern chic styling */
-    animation: handwriting 3s steps(30) 1;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 2px solid;
-    width: fit-content;
+    max-width: 800px;
+    width: 100%;
     margin: 0 auto;
 }
 
-@keyframes handwriting {
-    from { width: 0; }
-    to { width: 100%; }
+h1 {
+    font-size: 2.5em;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Modern chic styling */
 }
 
 p {
@@ -111,7 +103,7 @@ p {
 }
 
 #feedbackContainer {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     background: rgba(0, 0, 0, 0.8); /* Transparent dark background */
     color: #fff;
