@@ -102,36 +102,6 @@ p {
     50% { opacity: 0; }
 }
 
-#feedbackContainer {
-    max-width: 1000px;
-    margin: 0 auto;
-    background: rgba(0, 0, 0, 0.8); /* Transparent dark background */
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-#backButton {
-    background: #555;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 10px 40px;
-    border-radius: 30px;
-    width: fit-content;
-    align-self: center;
-    margin: 20px auto;
-    display: block;
-}
-
-#backButton:hover {
-    background: #444;
-}
-
-h2, h3 {
-    font-size: 1.5em; /* Reduce font size for h2 and h3 */
-}
-
 @media (max-width: 768px) {
     .content {
         padding: 15px;
@@ -141,7 +111,7 @@ h2, h3 {
         font-size: 2em;
     }
 
-    p, label, input, textarea, button, #backButton {
+    p, label, input, textarea, button {
         font-size: 0.9em;
     }
 }
