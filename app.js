@@ -74,6 +74,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Show the submit button when the modal is closed
+    $('#feedbackModal').on('hidden.bs.modal', function() {
+        submitButton.style.display = 'block';
+    });
+
     // Function to convert an image file to a compressed base64 string
     async function compressAndConvertToBase64(file, maxWidth = 500, maxHeight = 500, maxFileSizeKB = 100) {
         return new Promise((resolve, reject) => {
