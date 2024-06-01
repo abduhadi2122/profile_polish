@@ -10,6 +10,11 @@ body {
     background: rgba(0, 0, 0, 0.5) !important;
 }
 
+.navbar-transparent {
+    background: transparent !important;
+    z-index: 1000; /* Ensure navbar is on top of the video */
+}
+
 #backgroundVideo {
     top: 0;
     left: 0;
@@ -70,14 +75,19 @@ p {
     color: #fff;
 }
 
-.btn-primary {
-    background-color: #555;
-    border-color: #555;
+.btn-maroon {
+    background-color: #800000;
+    border-color: #800000;
+    color: #fff;
 }
 
-.btn-primary:hover {
-    background-color: #444;
-    border-color: #444;
+.btn-maroon:hover {
+    background-color: #660000;
+    border-color: #660000;
+}
+
+.btn {
+    border-radius: 50px; /* Make buttons round */
 }
 
 #spinner {
