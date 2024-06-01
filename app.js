@@ -5,11 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const progressPercentage = document.getElementById('progressPercentage');
     const bioInput = document.getElementById('bioInput');
     const fileInput = document.getElementById('fileInput');
-    const fileNames = document.getElementById('fileNames');
 
     fileInput.addEventListener('change', function() {
         const files = Array.from(fileInput.files).map(file => file.name).join(', ');
-        fileNames.textContent = files;
         document.querySelector('.custom-file-label').textContent = files;
     });
 
