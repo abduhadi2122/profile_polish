@@ -78,6 +78,12 @@ p {
     color: #fff;
 }
 
+.custom-file-label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .btn-maroon {
     background-color: #800000;
     border-color: #800000;
@@ -131,6 +137,12 @@ p {
     p, label, input, textarea, button {
         font-size: 0.9em;
     }
+
+    .custom-file-label {
+        white-space: normal; /* Allow text to wrap */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 /* Centering the feedback modal on mobile */
@@ -168,7 +180,7 @@ p {
     }
 
     body {
-        background: url('static-background.jpg') no-repeat center center fixed;
+        background: url('path-to-your-static-background.jpg') no-repeat center center fixed;
         background-size: cover;
     }
 }
