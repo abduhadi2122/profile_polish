@@ -11,14 +11,12 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <div class="container-fluid position-relative p-0">
-    <!-- Background Video -->
+  <div id="videoContainer">
     <video autoplay muted loop id="backgroundVideo" class="w-100 position-absolute">
       <source src="background-video.mp4" type="video/mp4">
       Your browser does not support HTML5 video.
     </video>
-    
+
     <!-- Overlay to darken the video -->
     <div class="video-overlay"></div>
 
@@ -28,7 +26,7 @@
         <div class="content p-4 rounded shadow-lg">
           <h1 class="text-center">Level up your dating game 💃🏼</h1>
           <p class="text-center">We can help enhance your dating profile by providing feedback and suggesting improvements.</p>
-          
+
           <div id="formContainer">
             <form id="profileForm" enctype="multipart/form-data" class="needs-validation" novalidate>
               <div class="form-group">
@@ -55,11 +53,11 @@
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Contact Us Link -->
-  <div class="contact-us text-center">
-    <a class="nav-link" href="mailto:abdulhadi2122@gmail.com">Contact Us</a>
+    <!-- Contact Us Link -->
+    <div id="contactUs" class="contact-us-link">
+      <a href="mailto:abdulhadi2122@gmail.com">Contact Us</a>
+    </div>
   </div>
 
   <!-- Feedback Modal -->
