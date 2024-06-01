@@ -107,16 +107,18 @@ p {
     50% { opacity: 0; }
 }
 
-.contact-us {
+.contact-us-link {
     position: absolute;
     bottom: 20px;
-    width: 100%;
-    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    color: gray;
+    text-decoration: none;
 }
 
-.contact-us .nav-link {
-    color: #fff;
-    font-size: 1.2em;
+.contact-us-link:hover {
+    color: darkgray;
 }
 
 @media (max-width: 768px) {
@@ -130,6 +132,19 @@ p {
 
     p, label, input, textarea, button {
         font-size: 0.9em;
+    }
+}
+
+/* Centering the feedback modal on mobile */
+@media (max-width: 576px) {
+    .modal-dialog {
+        max-width: 100%;
+        margin: 1.75rem auto;
+    }
+
+    .contact-us-link {
+        font-size: 12px;
+        bottom: 10px;
     }
 }
 
