@@ -1,44 +1,18 @@
-body, html {
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
     margin: 0;
     padding: 0;
-    height: 100%;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
-.navbar {
-    width: 100%;
-    position: fixed;
+
+#backgroundVideo {
     top: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 2rem;
-    background: rgba(0, 0, 0, 0.5); /* Adjust transparency here */
-    color: white;
-    z-index: 1;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
 }
 
-.navbar a {
-    color: white;
-    text-decoration: none;
-    margin: 0 1rem;
-    font-size: 1.2rem;
-}
-
-.navbar-left a {
-    margin-left: 0;
-}
-
-.navbar-right a {
-    margin-right: 0;
-}
-#background-video {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -1;
-}
 .video-overlay {
     position: absolute;
     top: 0;
