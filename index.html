@@ -58,11 +58,14 @@
 
               <button type="submit" class="btn btn-maroon btn-block" id="submitButton">Submit for Review</button>
 
-              <div id="spinner" class="d-flex flex-column justify-content-center align-items-center position-absolute w-100 h-100 bg-dark bg-opacity-50" style="display: none;">
-                <div id="progressPercentage" class="display-4">0%</div>
-                <div id="evaluatingText">Analyzing your profile...</div>
+              <div id="spinner" class="text-center mt-3" style="display: none;">
+                <div id="progressPercentage">0%</div>
               </div>
             </form>
+          </div>
+
+          <div id="feedbackContainer" style="display:none;">
+            <div id="feedback"></div>
           </div>
         </div>
       </div>
@@ -71,8 +74,8 @@
 
   <!-- Feedback Modal -->
   <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-      <div class="modal-content" style="background: rgba(30, 30, 30, 0.95); color: #fff;">
+    <div class="modal-dialog modal-xl" role="document">
+      <div class="modal-content bg-dark text-white">
         <div class="modal-header border-0">
           <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -80,9 +83,6 @@
         </div>
         <div class="modal-body">
           <div id="feedback"></div>
-        </div>
-        <div class="modal-footer border-0">
-          <button type="button" class="btn btn-maroon btn-block mt-3" data-dismiss="modal">Back</button>
         </div>
       </div>
     </div>
