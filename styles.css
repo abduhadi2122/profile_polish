@@ -6,6 +6,17 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
+.navbar {
+    background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.navbar-transparent {
+    background: transparent !important;
+    position: absolute;
+    width: 100%;
+    z-index: 1000; /* Ensure navbar is on top of the video */
+}
+
 #backgroundVideo {
     top: 0;
     left: 0;
@@ -107,20 +118,6 @@ p {
     50% { opacity: 0; }
 }
 
-.contact-us-link {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 14px;
-    color: gray;
-    text-decoration: none;
-}
-
-.contact-us-link:hover {
-    color: darkgray;
-}
-
 @media (max-width: 768px) {
     .content {
         padding: 15px;
@@ -151,4 +148,14 @@ p {
 /* Modal width */
 .modal-lg {
     max-width: 90%;
+}
+
+/* Navbar adjustments */
+.nav-link {
+    color: gray;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: darkgray;
 }
