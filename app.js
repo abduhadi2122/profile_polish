@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fileInput.addEventListener('change', function() {
         const files = Array.from(fileInput.files).map(file => file.name).join(', ');
         fileNames.textContent = files;
+        document.querySelector('.custom-file-label').textContent = files;
     });
 
     profileForm.addEventListener('submit', async function(event) {
@@ -21,14 +22,12 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let file of fileInput.files) {
             try {
                 const base64_compressed = await compressAndConvertToBase64(file);
-                //console.log(base64_compressed)
                 formData.append('images', base64_compressed);
-              } 
-            catch (error) {
+            } catch (error) {
                 console.error('Error processing file:', file, error);
-              }
             }
-        
+        }
+
         formData.append('bio', bioInputValue);
 
         // Show spinner, hide submit button, and start progress bar animation
@@ -64,15 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Display the feedback
             const convertedHTML = convertMarkdownToHTML(responseData.feedback);
-            //const jsonObject = JSON.parse(responseData.feedback);
             document.getElementById('feedback').innerHTML = convertedHTML;
-            //document.getElementById('photography').innerText = jsonObject.ratings.photography;
-            //document.getElementById('style').innerText = jsonObject.ratings.style;
-            //document.getElementById('fitness').innerText = jsonObject.ratings.fitness;
-            //document.getElementById('social_status').innerText = jsonObject.ratings.social_status;
-            //document.getElementById('pictures').innerText = jsonObject.suggested_improvements.pictures;
-            //document.getElementById('bio').innerText = jsonObject.suggested_improvements.bio;
-            
 
         } catch (error) {
             console.error("Fetch error:", error);
@@ -95,74 +86,72 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('submitButton').style.display = 'block'; // Show the submit button again
     });
 
-  // Function to convert an image file to a compressed base64 string
-  async function compressAndConvertToBase64(file, maxWidth = 500, maxHeight = 500, maxFileSizeKB = 100) {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function(event) {
-        const img = new Image();
-        img.src = event.target.result;
-        img.onload = function() {
-          const canvas = document.createElement('canvas');
-          const ctx = canvas.getContext('2d');
+    // Function to convert an image file to a compressed base64 string
+    async function compressAndConvertToBase64(file, maxWidth = 500, maxHeight = 500, maxFileSizeKB = 100) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function(event) {
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = function() {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
 
-          // Calculate the scaling factor to maintain aspect ratio
-          const scale = Math.min(maxWidth / img.width, maxHeight / img.height);
-          const width = img.width * scale;
-          const height = img.height * scale;
+                    // Calculate the scaling factor to maintain aspect ratio
+                    const scale = Math.min(maxWidth / img.width, maxHeight / img.height);
+                    const width = img.width * scale;
+                    const height = img.height * scale;
 
-          // Set canvas dimensions to the scaled dimensions
-          canvas.width = width;
-          canvas.height = height;
+                    // Set canvas dimensions to the scaled dimensions
+                    canvas.width = width;
+                    canvas.height = height;
 
-          // Draw the scaled image on the canvas
-          ctx.drawImage(img, 0, 0, width, height);
+                    // Draw the scaled image on the canvas
+                    ctx.drawImage(img, 0, 0, width, height);
 
-          let quality = 0.7;
-          let compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+                    let quality = 0.7;
+                    let compressedBase64 = canvas.toDataURL('image/jpeg', quality);
 
-          // Adjust quality to ensure the size is below the specified maxFileSizeKB
-          while (compressedBase64.length > maxFileSizeKB * 1024 && quality > 0.1) {
-            quality -= 0.1;
-            compressedBase64 = canvas.toDataURL('image/jpeg', quality);
-          }
+                    // Adjust quality to ensure the size is below the specified maxFileSizeKB
+                    while (compressedBase64.length > maxFileSizeKB * 1024 && quality > 0.1) {
+                        quality -= 0.1;
+                        compressedBase64 = canvas.toDataURL('image/jpeg', quality);
+                    }
 
-          // Resolve the promise with the base64 string
-          resolve(compressedBase64);
-        };
-        img.onerror = function(error) {
-          reject(error);
-        };
-      };
-      reader.onerror = function(error) {
-        reject(error);
-      };
-    });
-  }
+                    // Resolve the promise with the base64 string
+                    resolve(compressedBase64);
+                };
+                img.onerror = function(error) {
+                    reject(error);
+                };
+            };
+            reader.onerror = function(error) {
+                reject(error);
+            };
+        });
+    }
 
-   function convertMarkdownToHTML(text) {
+    function convertMarkdownToHTML(text) {
+        // Replace #### Heading with <h3>Heading</h3>
+        text = text.replace(/####\s*(.*?)\n/g, '<h3>$1</h3>\n');
 
-    // Replace #### Heading with <h3>Heading</h3>
-    text = text.replace(/####\s*(.*?)\n/g, '<h3>$1</h3>\n');
-       
-    // Replace ### Heading with <h3>Heading</h3>
-    text = text.replace(/###\s*(.*?)\n/g, '<h3>$1</h3>\n');
+        // Replace ### Heading with <h3>Heading</h3>
+        text = text.replace(/###\s*(.*?)\n/g, '<h3>$1</h3>\n');
 
-    // Replace ## Heading with <h2>Heading</h2>
-    text = text.replace(/##\s*(.*?)\n/g, '<h2>$1</h2>\n');
+        // Replace ## Heading with <h2>Heading</h2>
+        text = text.replace(/##\s*(.*?)\n/g, '<h2>$1</h2>\n');
 
-    // Replace **bold** with <strong>bold</strong>
-    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        // Replace **bold** with <strong>bold</strong>
+        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
-    // Replace newline characters with <br> tags
-    text = text.replace(/\n/g, '');
+        // Replace newline characters with <br> tags
+        text = text.replace(/\n/g, '');
 
-    // Return the converted text
-    return text;
-}
-    
-    
+        // Return the converted text
+        return text;
+    }
+
     // Submit form when Enter key is pressed in the bio textarea
     bioInput.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
