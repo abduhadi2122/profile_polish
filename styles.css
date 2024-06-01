@@ -6,17 +6,6 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-.navbar {
-    background: rgba(0, 0, 0, 0.5) !important;
-}
-
-.navbar-transparent {
-    background: transparent !important;
-    position: absolute;
-    width: 100%;
-    z-index: 1000; /* Ensure navbar is on top of the video */
-}
-
 #backgroundVideo {
     top: 0;
     left: 0;
@@ -118,6 +107,18 @@ p {
     50% { opacity: 0; }
 }
 
+.contact-us {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.contact-us .nav-link {
+    color: #fff;
+    font-size: 1.2em;
+}
+
 @media (max-width: 768px) {
     .content {
         padding: 15px;
@@ -135,26 +136,4 @@ p {
 /* Modal width */
 .modal-lg {
     max-width: 90%;
-}
-
-/* Contact Us link visible on mobile */
-.navbar-nav .nav-item .nav-link {
-    display: block;
-}
-
-/* Center Profile Polish on mobile */
-.navbar-brand {
-    text-align: center;
-    width: 100%;
-}
-
-/* Ensure the Profile Polish link centers in mobile */
-@media (max-width: 991px) {
-    .navbar-brand.d-none {
-        display: block !important;
-    }
-
-    .navbar-nav.ml-auto {
-        margin-left: 0 !important;
-    }
 }
