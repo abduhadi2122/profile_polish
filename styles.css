@@ -30,21 +30,44 @@ body {
 .content {
     max-width: 600px;
     width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Transparent dark background */
+    color: #fff;
 }
 
 h1 {
     font-size: 2.5em;
-    color: #800000;
+    color: #fff;
     font-family: 'Pacifico', cursive;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Modern chic styling */
 }
 
 p {
     font-size: 1.2em;
-    color: #555;
+    color: #ddd;
+    text-align: center;
 }
 
 .form-control, .custom-file-input, .custom-file-label, .btn {
     margin-top: 10px;
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+}
+
+.custom-file-label::after {
+    background-color: #555;
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #555;
+    border-color: #555;
+}
+
+.btn-primary:hover {
+    background-color: #444;
+    border-color: #444;
 }
 
 #spinner {
@@ -59,16 +82,39 @@ p {
 #progressPercentage {
     font-size: 2em;
     font-weight: bold;
-    color: #800000;
+    color: #fff;
     margin-bottom: 10px;
 }
 
 #evaluatingText {
     font-weight: bold;
-    color: #800000;
+    color: #fff;
     animation: blink 1s steps(5, start) infinite;
 }
 
 @keyframes blink {
     50% { opacity: 0; }
+}
+
+#feedbackContainer {
+    max-height: 70vh;
+    overflow-y: auto;
+    margin-top: 20px;
+}
+
+#backButton {
+    background: #555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 10px 40px;
+    border-radius: 30px;
+    width: fit-content;
+    align-self: center;
+    margin: 20px auto;
+    display: block;
+}
+
+#backButton:hover {
+    background: #444;
 }
