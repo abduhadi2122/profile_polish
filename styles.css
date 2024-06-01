@@ -28,18 +28,27 @@ body {
 }
 
 .content {
-    max-width: 600px;
-    width: 100%;
     background: rgba(0, 0, 0, 0.5); /* Transparent dark background */
     color: #fff;
 }
 
-h1 {
+.handwritten {
+    font-family: 'Indie Flower', cursive;
     font-size: 2.5em;
     color: #fff;
-    font-family: 'Roboto', sans-serif;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Modern chic styling */
+    animation: handwriting 3s steps(30) 1;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+@keyframes handwriting {
+    from { width: 0; }
+    to { width: 100%; }
 }
 
 p {
@@ -50,14 +59,14 @@ p {
 
 .form-control, .custom-file-input, .custom-file-label, .btn {
     margin-top: 10px;
-    background-color: #333;
+    background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background */
     border: 1px solid #555;
     color: #fff;
 }
 
 .form-control:focus, .custom-file-input:focus {
-    background-color: #fff;
-    color: #000;
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #fff;
 }
 
 .custom-file-label::after {
@@ -102,9 +111,12 @@ p {
 }
 
 #feedbackContainer {
-    max-height: 70vh;
-    overflow-y: auto;
-    margin-top: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.8); /* Transparent dark background */
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
 }
 
 #backButton {
