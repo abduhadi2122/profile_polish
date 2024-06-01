@@ -12,6 +12,8 @@ body {
 
 .navbar-transparent {
     background: transparent !important;
+    position: absolute;
+    width: 100%;
     z-index: 1000; /* Ensure navbar is on top of the video */
 }
 
