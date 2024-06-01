@@ -57,9 +57,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const responseData = await response.json();
             console.log("Response Data:", responseData);
 
-            // Hide the form container
-            document.getElementById('formContainer').style.display = 'none';
-            document.getElementById('feedbackContainer').style.display = 'block';
+            // Hide spinner
+            spinner.style.display = 'none';
+
+            // Open the feedback modal
+            $('#feedbackModal').modal('show');
 
             // Display the feedback
             const convertedHTML = convertMarkdownToHTML(responseData.feedback);
@@ -67,23 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         } catch (error) {
             console.error("Fetch error:", error);
-        } finally {
-            // Hide spinner
             spinner.style.display = 'none';
+            submitButton.style.display = 'block';
         }
-    });
-
-    document.getElementById('backButton').addEventListener('click', function() {
-        // Hide the feedback container
-        document.getElementById('feedbackContainer').style.display = 'none';
-
-        // Reset form values
-        document.getElementById('profileForm').reset();
-        fileNames.textContent = '';
-
-        // Show the form container
-        document.getElementById('formContainer').style.display = 'block';
-        document.getElementById('submitButton').style.display = 'block'; // Show the submit button again
     });
 
     // Function to convert an image file to a compressed base64 string
