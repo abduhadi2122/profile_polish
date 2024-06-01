@@ -131,3 +131,30 @@ p {
         font-size: 0.9em;
     }
 }
+
+/* Modal width */
+.modal-lg {
+    max-width: 90%;
+}
+
+/* Contact Us link visible on mobile */
+.navbar-nav .nav-item .nav-link {
+    display: block;
+}
+
+/* Center Profile Polish on mobile */
+.navbar-brand {
+    text-align: center;
+    width: 100%;
+}
+
+/* Ensure the Profile Polish link centers in mobile */
+@media (max-width: 991px) {
+    .navbar-brand.d-none {
+        display: block !important;
+    }
+
+    .navbar-nav.ml-auto {
+        margin-left: 0 !important;
+    }
+}
