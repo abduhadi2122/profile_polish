@@ -3,7 +3,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 #backgroundVideo {
@@ -30,14 +30,14 @@ body {
 .content {
     max-width: 600px;
     width: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Transparent dark background */
+    background: rgba(0, 0, 0, 0.5); /* Transparent dark background */
     color: #fff;
 }
 
 h1 {
     font-size: 2.5em;
     color: #fff;
-    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Modern chic styling */
 }
@@ -53,6 +53,11 @@ p {
     background-color: #333;
     border: 1px solid #555;
     color: #fff;
+}
+
+.form-control:focus, .custom-file-input:focus {
+    background-color: #fff;
+    color: #000;
 }
 
 .custom-file-label::after {
@@ -117,4 +122,22 @@ p {
 
 #backButton:hover {
     background: #444;
+}
+
+h2, h3 {
+    font-size: 1.5em; /* Reduce font size for h2 and h3 */
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    p, label, input, textarea, button, #backButton {
+        font-size: 0.9em;
+    }
 }
