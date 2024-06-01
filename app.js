@@ -57,31 +57,21 @@ document.addEventListener('DOMContentLoaded', function() {
             const responseData = await response.json();
             console.log("Response Data:", responseData);
 
-            // Hide the form container
-            document.getElementById('formContainer').style.display = 'none';
-            document.getElementById('feedbackContainer').style.display = 'block';
+            // Hide spinner
+            spinner.style.display = 'none';
+
+            // Open the feedback modal
+            $('#feedbackModal').modal('show');
 
             // Display the feedback
             const convertedHTML = convertMarkdownToHTML(responseData.feedback);
             document.getElementById('feedback').innerHTML = convertedHTML;
 
-            // Open the feedback modal
-            $('#feedbackModal').modal('show');
-            spinner.style.display = 'none';
-            submitButton.style.display = 'block';
-
         } catch (error) {
             console.error("Fetch error:", error);
-        } finally {
-            // Hide spinner
             spinner.style.display = 'none';
+            submitButton.style.display = 'block';
         }
-    });
-
-    $('#feedbackModal').on('hidden.bs.modal', function () {
-        profileForm.reset();
-        fileNames.textContent = '';
-        submitButton.style.display = 'block';
     });
 
     // Function to convert an image file to a compressed base64 string
