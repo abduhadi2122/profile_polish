@@ -160,3 +160,15 @@ p {
 .nav-link:hover {
     color: darkgray;
 }
+
+/* Static background for mobile devices */
+@media (max-width: 768px) {
+    #backgroundVideo {
+        display: none;
+    }
+
+    body {
+        background: url('static-background.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+}
